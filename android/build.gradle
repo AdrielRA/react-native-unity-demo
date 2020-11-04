@@ -24,18 +24,15 @@ allprojects {
     repositories {
         mavenLocal()
         jcenter()
-        google()
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
             url "$rootDir/../node_modules/react-native/android"
         }
-        flatDir {
-            dirs project(':UnityExport').file('libs')
-        }
+        google()
     }
 }
 
-task wrapper(type: Wrapper) {
+wrapper {
     gradleVersion = '4.4'
     distributionUrl = distributionUrl.replace("bin", "all")
 }
